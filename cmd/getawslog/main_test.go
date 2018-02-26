@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"errors"
-	"os"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -40,23 +39,6 @@ func TestGetProfileEnv(t *testing.T) {
 	}
 }
 
-func TestEnvs(t *testing.T) {
-	var vtests = []struct {
-		kvs []kvStruct
-	}{
-		{
-			[]kvStruct{{"aaa", "hoge"}, {"bbb", "hoge"}, {"ccc", "hoge"}},
-		},
-	}
-	for _, vt := range vtests {
-		setEnvs(vt.kvs)
-		for _, expected := range vt.kvs {
-			if os.Getenv(expected.k) != expected.v {
-				t.Errorf("setEnvs(%q) = %q, want %q", vt.kvs, expected.k, expected.v)
-			}
-		}
-	}
-}
 func TestAwsFilePath(t *testing.T) {
 	var vtests = []struct {
 		envValue         string

@@ -63,8 +63,6 @@ type profileConfig struct {
 	Region     string
 }
 
-type kvStruct struct{ k, v string }
-
 var (
 	env     environments
 	version = "dev"
@@ -112,8 +110,7 @@ func init() {
 }
 
 func main() {
-	var sess *session.Session
-	sess = session.Must(session.NewSession())
+	sess := session.Must(session.NewSession())
 	conf, err := getProfileConfig(getProfileEnv())
 	if err == nil && len(conf.SrcProfile) > 0 {
 		sess = getStsSession(conf)
@@ -134,12 +131,6 @@ func getProfileEnv() (profile string) {
 		profile = "default"
 	}
 	return
-}
-
-func setEnvs(kvs []kvStruct) {
-	for _, kv := range kvs {
-		os.Setenv(kv.k, kv.v) // nolint errcheck
-	}
 }
 
 func getStsSession(conf profileConfig) *session.Session {
