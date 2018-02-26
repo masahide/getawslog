@@ -1,6 +1,6 @@
 # getawslog
 
-Command wrapper for encryption and decryption using aws kms.
+Commands for referring to cloudwatch logs.
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/masahide/getawslog)](https://goreportcard.com/report/github.com/masahide/getawslog)
 [![Build Status](https://travis-ci.org/masahide/getawslog.svg?branch=master)](https://travis-ci.org/masahide/getawslog)
@@ -9,7 +9,7 @@ Command wrapper for encryption and decryption using aws kms.
 
 ## Description
 
-getawslog is use aws kms to encrypt and decrypt it and set it to environment variable.
+Commands for referring to cloudwatch logs.
 
 ## Installation
 
